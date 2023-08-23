@@ -37,6 +37,8 @@ kotlin {
         }
         val androidMain by getting {
             dependencies {
+                implementation("androidx.compose.ui:ui-tooling-preview:1.4.3")
+                implementation("androidx.compose.ui:ui-tooling:1.4.3")
                 api("com.google.accompanist:accompanist-systemuicontroller:0.27.0")
                 api("androidx.activity:activity-compose:1.7.2")
                 api("androidx.appcompat:appcompat:1.6.1")
@@ -55,6 +57,7 @@ kotlin {
     }
 }
 
+@Suppress("unstableapiusage")
 android {
     compileSdk = (findProperty("android.compileSdk") as String).toInt()
     namespace = "com.myapplication.common"
@@ -71,6 +74,11 @@ android {
         sourceCompatibility = JavaVersion.VERSION_11
         targetCompatibility = JavaVersion.VERSION_11
     }
+
+    buildFeatures {
+        compose = true
+    }
+
     kotlin {
         jvmToolchain(11)
     }
