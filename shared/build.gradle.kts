@@ -10,6 +10,7 @@ kotlin {
 
     iosX64()
     iosArm64()
+    jvm("desktop")
     iosSimulatorArm64()
 
     cocoapods {
@@ -35,6 +36,13 @@ kotlin {
                 implementation(compose.components.resources)
             }
         }
+
+        val desktopMain by getting {
+            dependencies {
+                implementation(compose.desktop.common)
+            }
+        }
+
         val androidMain by getting {
             dependencies {
                 implementation("androidx.compose.ui:ui-tooling-preview:1.4.3")

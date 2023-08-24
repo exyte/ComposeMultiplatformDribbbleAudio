@@ -1,6 +1,8 @@
 package albums
 
 import ModelComment
+import PlaybackData
+import androidx.compose.desktop.ui.tooling.preview.Preview
 import androidx.compose.foundation.*
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.shape.CircleShape
@@ -17,6 +19,7 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import com.exyte.composesample.*
+import com.exyte.composesample.ui.theme.PlayerTheme
 import lastIndex
 import org.jetbrains.compose.resources.ExperimentalResourceApi
 import org.jetbrains.compose.resources.painterResource
@@ -32,7 +35,7 @@ fun CommentsList(
     scrollState: ScrollState = rememberScrollState(),
     comments: List<ModelComment>,
     onActionClick: (Action) -> Unit = {},
-    topPadding: Dp = 0.dp
+    topPadding: Dp = 0.dp,
 ) {
     var selectedComment by remember { mutableStateOf<ModelComment?>(null) }
     Surface(
@@ -156,6 +159,16 @@ fun CommentListItem(
             fontWeight = FontWeight.Light,
             style = MaterialTheme.typography.body1,
             color = MaterialTheme.colors.onSurface,
+        )
+    }
+}
+
+@Preview
+@Composable
+fun CommentsListPreview() {
+    PlayerTheme {
+        CommentsList(
+            comments = PlaybackData().comments
         )
     }
 }
