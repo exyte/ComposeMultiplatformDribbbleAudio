@@ -13,6 +13,9 @@ import androidx.compose.ui.platform.LocalDensity
 import androidx.compose.ui.unit.DpSize
 import androidx.compose.ui.unit.dp
 import NowPlayingSong
+import androidx.compose.desktop.ui.tooling.preview.Preview
+import androidx.compose.ui.unit.Constraints
+import com.exyte.composesample.ui.theme.PlayerTheme
 import mainplayer.movingupsongpanel.MovingUpSongPanel
 import mainplayer.movingupsongpanel.PlayerControlContainer
 import mainplayer.movingupsongpanel.SongInfoContainer
@@ -24,6 +27,7 @@ import toPx
 import ui.DraggableButton
 import kotlinx.coroutines.cancelChildren
 import kotlinx.coroutines.launch
+import states.rememberPlayerScreenState
 import kotlin.math.abs
 
 
@@ -128,6 +132,16 @@ fun MainPlayerScreen(
             onOffsetChange = { dragAmount -> calculateNewOffset(dragAmount) },
             onDragStart = { transitionToComments() },
             onDragEnd = { completeAnimation(screenState.currentDragOffset) }
+        )
+    }
+}
+
+@Preview
+@Composable
+fun MainPlayerScreenPreview(){
+    PlayerTheme {
+        MainPlayerScreen(
+            screenState = rememberPlayerScreenState(constraints = Constraints.fixed(1000,2000), density = LocalDensity.current)
         )
     }
 }

@@ -1,7 +1,9 @@
 package albums
 
 import ModelAlbumInfo
+import PlaybackData
 import RoundedCornersSurface
+import androidx.compose.desktop.ui.tooling.preview.Preview
 import androidx.compose.foundation.*
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.shape.RoundedCornerShape
@@ -24,6 +26,7 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.exyte.composesample.*
 import com.exyte.composesample.ui.TopMenu
+import com.exyte.composesample.ui.theme.PlayerTheme
 import lastIndex
 import org.jetbrains.compose.resources.ExperimentalResourceApi
 import org.jetbrains.compose.resources.painterResource
@@ -119,7 +122,7 @@ private fun AlbumListItem(
                 .clip(RoundedCornerShape(10.dp))
                 .alpha(LocalContentAlpha.current)
                 .focusProperties { canFocus = false }
-                .clickable { onClick(info,parentOffset, mySize) }
+                .clickable { onClick(info, parentOffset, mySize) }
         )
         Spacer(modifier = Modifier.height(16.dp))
         Text(
@@ -140,3 +143,14 @@ private fun AlbumListItem(
 }
 
 const val TOP_MENU_TITLE = "Albums"
+
+@Preview
+@Composable
+fun AlbumsListContainerPreview() {
+    PlayerTheme {
+        AlbumsListContainer(
+            modifier = Modifier.height(400.dp),
+            albumData = PlaybackData().albums
+        )
+    }
+}

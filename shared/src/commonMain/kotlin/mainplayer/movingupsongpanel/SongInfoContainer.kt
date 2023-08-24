@@ -20,6 +20,8 @@ import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import RoundedCornersSurface
+import androidx.compose.desktop.ui.tooling.preview.Preview
+import com.exyte.composesample.ui.theme.PlayerTheme
 import org.jetbrains.compose.resources.ExperimentalResourceApi
 import org.jetbrains.compose.resources.painterResource
 
@@ -163,3 +165,11 @@ private fun SimpleInfoItem(modifier: Modifier, counter: Int, label: String) {
 const val FOLLOWERS = "Followers"
 const val FOLLOWING = "Following"
 const val COMMENTS = "Comments"
+
+@Preview
+@Composable
+fun SongInfoContainerPreview(){
+    PlayerTheme {
+        SongInfoContainer(height = 200.dp)
+    }
+}

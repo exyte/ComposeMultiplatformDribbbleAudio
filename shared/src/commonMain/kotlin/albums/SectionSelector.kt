@@ -2,6 +2,7 @@ package albums
 
 import androidx.compose.animation.animateColorAsState
 import androidx.compose.animation.core.tween
+import androidx.compose.desktop.ui.tooling.preview.Preview
 import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
@@ -15,6 +16,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
+import com.exyte.composesample.ui.theme.PlayerTheme
 import kotlin.jvm.JvmInline
 
 
@@ -82,5 +84,13 @@ fun SectionItem(modifier: Modifier, title: String, isSelected: Boolean) {
             style = MaterialTheme.typography.button,
             fontWeight = FontWeight.Light,
         )
+    }
+}
+
+@Preview
+@Composable
+fun SectionSelectorPreview(){
+    PlayerTheme {
+        SectionSelector()
     }
 }

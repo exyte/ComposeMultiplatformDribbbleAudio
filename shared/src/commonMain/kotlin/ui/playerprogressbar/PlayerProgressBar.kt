@@ -1,6 +1,8 @@
 package ui.playerprogressbar
 
+import NowPlayingSong
 import androidx.compose.animation.core.*
+import androidx.compose.desktop.ui.tooling.preview.Preview
 import androidx.compose.foundation.Canvas
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
@@ -22,6 +24,7 @@ import androidx.compose.ui.unit.sp
 import lerpF
 import toPxf
 import com.exyte.composesample.ui.playerprogressbar.PlayTimeFormatter
+import com.exyte.composesample.ui.theme.PlayerTheme
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.isActive
 import org.jetbrains.compose.resources.ExperimentalResourceApi
@@ -70,8 +73,8 @@ fun ProgressBar(
 
 @Composable
 fun ProgressBar(
-    modifier: Modifier,
     state: ProgressBarState,
+    modifier: Modifier = Modifier,
     onButtonClick: () -> Unit = {},
 ) {
     Row(
@@ -210,16 +213,17 @@ fun AnimatedVolumeLevelBar(
 
 const val MaxLinesCount = 100
 
-//@Preview
-//@Composable
-//fun ProgressBarPreview() {
-//    PlayerTheme {
-//        ProgressBar(
-//            modifier = Modifier
-//                .fillMaxWidth()
-//                .height(48.dp),
-//            state = ProgressBarState(NowPlayingSong().SongDuration),
-//        )
-//    }
-//}
+@Preview
+@Composable
+fun ProgressBarPreview() {
+    PlayerTheme {
+        Box(
+            modifier = Modifier
+                .background(Color.Black)
+                .padding(16.dp)
+        ) {
+            ProgressBar(state = ProgressBarState(NowPlayingSong().SongDuration))
+        }
+    }
+}
 

@@ -1,5 +1,6 @@
 package mainplayer.album
 
+import androidx.compose.desktop.ui.tooling.preview.Preview
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.*
 import androidx.compose.material.Icon
@@ -24,6 +25,7 @@ import androidx.compose.ui.unit.IntSize
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.exyte.composesample.ui.theme.Haiti
+import com.exyte.composesample.ui.theme.PlayerTheme
 import org.jetbrains.compose.resources.ExperimentalResourceApi
 import org.jetbrains.compose.resources.painterResource
 import states.PlayerScreenState
@@ -194,4 +196,12 @@ data class PhotoScale(val additionalScale: Float) : ContentScale {
     private fun computeFillHeight(srcSize: Size, dstSize: Size): Float =
         dstSize.height / srcSize.height
 
+}
+
+@Preview
+@Composable
+fun AlbumInfoContainerPreview() {
+    PlayerTheme {
+        AlbumInfoContainer(modifier = Modifier.size(400.dp, 200.dp))
+    }
 }

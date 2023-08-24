@@ -7,6 +7,8 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalDensity
 import albums.AlbumScreen
+import androidx.compose.desktop.ui.tooling.preview.Preview
+import com.exyte.composesample.ui.theme.PlayerTheme
 import nowplaying.ANIM_DURATION
 import nowplaying.NowPlayingAlbumScreen
 import mainplayer.album.Background
@@ -130,5 +132,13 @@ fun PlayerScreen(playbackData: PlaybackData) {
                 }
             }
         }
+    }
+}
+
+@Preview
+@Composable
+fun SomePreview(){
+    PlayerTheme {
+        PlayerScreen(PlaybackData())
     }
 }

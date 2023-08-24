@@ -2,6 +2,7 @@ package mainplayer.movingupsongpanel
 
 import NowPlayingSong
 import RoundedCornersSurface
+import androidx.compose.desktop.ui.tooling.preview.Preview
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.shape.RoundedCornerShape
@@ -11,16 +12,14 @@ import androidx.compose.material.contentColorFor
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.text.style.TextOverflow
-//import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-//import com.exyte.composesample.R
 import ui.AnimatedText
 import ui.playerprogressbar.ProgressBar
 import com.exyte.composesample.ui.TopMenu
+import com.exyte.composesample.ui.theme.PlayerTheme
 import statusBarsPaddingWithOffset
 import ui.Fonts
 
@@ -112,4 +111,15 @@ private fun ContentSubtitle(text: String, modifier: Modifier) {
         overflow = TextOverflow.Ellipsis,
         maxLines = 3,
     )
+}
+
+@Preview
+@Composable
+fun PlayerControlContainerPreview() {
+    PlayerTheme {
+        PlayerControlContainer(
+            modifier = Modifier.height(500.dp),
+            nowPlayingSong = NowPlayingSong()
+        )
+    }
 }

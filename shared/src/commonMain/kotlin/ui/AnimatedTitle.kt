@@ -2,6 +2,7 @@
 
 package ui
 
+import androidx.compose.desktop.ui.tooling.preview.Preview
 import androidx.compose.foundation.Canvas
 import androidx.compose.material.MaterialTheme
 import androidx.compose.runtime.Composable
@@ -25,6 +26,7 @@ import androidx.compose.ui.text.drawText
 import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.rememberTextMeasurer
 import androidx.compose.ui.unit.sp
+import com.exyte.composesample.ui.theme.PlayerTheme
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 import kotlin.math.max
@@ -187,5 +189,17 @@ fun AnimatedText(
             )
             canvas.measure(cc).placeRelative(x = 0, y = 0)
         }
+    }
+}
+
+@Preview
+@Composable
+fun AnimatedTitlePreview() {
+    PlayerTheme {
+        AnimatedText(
+            text = "Animated Text",
+            useAnimation = false,
+            fontFamily = Fonts.abrilFontFamily()
+        )
     }
 }

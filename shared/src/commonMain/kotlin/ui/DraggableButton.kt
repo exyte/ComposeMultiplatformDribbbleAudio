@@ -1,5 +1,6 @@
 package ui
 
+import androidx.compose.desktop.ui.tooling.preview.Preview
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.gestures.*
@@ -15,6 +16,7 @@ import androidx.compose.ui.draw.shadow
 import androidx.compose.ui.geometry.Offset
 import androidx.compose.ui.input.pointer.*
 import androidx.compose.ui.unit.dp
+import com.exyte.composesample.ui.theme.PlayerTheme
 import org.jetbrains.compose.resources.ExperimentalResourceApi
 import org.jetbrains.compose.resources.painterResource
 
@@ -92,5 +94,13 @@ suspend fun PointerInputScope.detectHorizontalDragGestures(
                 onDragCancel()
             }
         }
+    }
+}
+
+@Preview
+@Composable
+fun DraggableButtonPreview(){
+    PlayerTheme {
+        DraggableButton()
     }
 }

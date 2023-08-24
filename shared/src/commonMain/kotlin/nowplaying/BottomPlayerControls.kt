@@ -1,5 +1,6 @@
 package nowplaying
 
+import androidx.compose.desktop.ui.tooling.preview.Preview
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.shape.CircleShape
@@ -14,6 +15,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
+import com.exyte.composesample.ui.theme.PlayerTheme
 import org.jetbrains.compose.resources.ExperimentalResourceApi
 import org.jetbrains.compose.resources.painterResource
 
@@ -91,5 +93,13 @@ private fun SmallButton(iconResId: String, contentDescription: String = "") {
             contentDescription = contentDescription,
             tint = MaterialTheme.colors.onPrimary,
         )
+    }
+}
+
+@Preview
+@Composable
+fun BottomPlayerControlsPreview(){
+    PlayerTheme {
+        BottomPlayerControls()
     }
 }

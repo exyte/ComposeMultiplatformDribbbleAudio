@@ -3,6 +3,7 @@ package albums
 import androidx.compose.animation.core.animateDp
 import androidx.compose.animation.core.keyframes
 import androidx.compose.animation.core.updateTransition
+import androidx.compose.desktop.ui.tooling.preview.Preview
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.padding
@@ -158,4 +159,10 @@ private fun ActionIconButton(
             tint = Color.White,
         )
     }
+}
+
+@Preview
+@Composable
+fun ActionPanelPreview(){
+    ActionPanel(onActionClick = {})
 }

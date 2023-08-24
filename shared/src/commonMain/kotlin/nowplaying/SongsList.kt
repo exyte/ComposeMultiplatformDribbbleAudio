@@ -1,6 +1,8 @@
 package nowplaying
 
 import ModelSongInfo
+import PlaybackData
+import androidx.compose.desktop.ui.tooling.preview.Preview
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn
@@ -14,6 +16,7 @@ import androidx.compose.material.icons.filled.Favorite
 import androidx.compose.material.icons.outlined.Favorite
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.State
+import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -26,6 +29,7 @@ import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.IntOffset
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import com.exyte.composesample.ui.theme.PlayerTheme
 import lerp
 import toPx
 
@@ -135,5 +139,17 @@ fun SongList(
                 Spacer(modifier = Modifier.height(bottomPadding))
             }
         }
+    }
+}
+
+@Preview
+@Composable
+fun SongListPreview(){
+    PlayerTheme {
+        SongList(
+            items = PlaybackData().albums[0].songs,
+            likedIndices = LikedIndices(),
+            offsetPercent = mutableStateOf(100f)
+        )
     }
 }
